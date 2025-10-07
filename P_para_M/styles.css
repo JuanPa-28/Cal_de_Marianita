@@ -1,0 +1,130 @@
+/* Estilos generales (sin cambios, solo para completar el CSS) */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #e0f7fa; 
+    padding: 20px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 30px;
+}
+
+.calculator {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    background-color: #fff;
+    width: 300px;
+}
+
+#result {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 2em;
+    text-align: right;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #eee;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px;
+}
+
+button {
+    padding: 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    transition: background-color 0.1s;
+}
+
+button:hover { background-color: #d4d4d4; }
+.operator { background-color: #00c3ff; color: white; }
+.operator:hover { background-color: #006be6; }
+.clear { background-color: #ff3b30; color: white; grid-column: span 1; }
+.clear:hover { background-color: #cc2e26; }
+.equal { background-color: #eb11ce; color: white; grid-column: span 1; }
+.equal:hover { background-color: #f00af0; }
+.zero { grid-column: span 2; }
+
+
+/* --- NUEVOS ESTILOS DEL DINOSAURIO DE IMAGEN --- */
+
+/* Contenedor del Dino y Burbuja (ajustado para la imagen) */
+.dino-friend {
+    display: flex;
+    align-items: flex-end; /* Alinea la burbuja con la parte inferior del dino */
+    gap: 15px;
+    margin-bottom: 30px;
+    position: relative;
+    /* Ajusta el ancho si es necesario para que quepa bien la imagen y la burbuja */
+    width: auto; /* Dejar que el contenido defina el ancho */
+    max-width: 450px; 
+}
+
+/* Burbuja de diálogo (Mantenemos los estilos anteriores, solo ajustamos la posición de la punta) */
+.dino-bubble {
+    background-color: #ffffff;
+    border: 2px solid #87CEEB; /* Azul claro */
+    border-radius: 15px;
+    padding: 15px 20px;
+    max-width: 250px;
+    min-height: 50px;
+    position: relative;
+    font-size: 1em;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    order: 1; /* Para que la burbuja esté a la izquierda de la imagen */
+}
+
+/* Punta de la burbuja (Flecha apuntando a la imagen del dino) */
+.dino-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: 20px; /* Ajusta la altura de la punta */
+    right: -17px; /* Apunta hacia la imagen del dino */
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 17px solid #87CEEB; /* Borde de la punta */
+}
+
+.dino-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: 22px; /* Ligeramente más arriba que after */
+    right: -13px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 13px solid #ffffff; /* Relleno de la punta */
+}
+
+/* Estilos para la imagen del dinosaurio */
+.dino-image {
+    width: 150px; /* Ajusta el tamaño de la imagen según necesites */
+    height: auto; /* Mantiene la proporción */
+    display: block; /* Para eliminar cualquier espacio extra debajo de la imagen */
+    order: 2; /* Para que la imagen esté a la derecha */
+    transform: scaleX(-1); /* Opcional: invierte la imagen para que el dino mire hacia la burbuja */
+    /* Puedes ajustar el padding o margin si la burbuja queda muy pegada a la imagen */
+}
